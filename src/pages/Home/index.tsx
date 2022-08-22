@@ -53,8 +53,8 @@ export default function Home() {
 
                     <td className="item">{token.name.toUpperCase()}</td>
                     <td className="item">
-                      {new Intl.NumberFormat("en-US", {
-                        style: "currency",
+                        {new Intl.NumberFormat("en-US", {
+                          style: "currency",
                         currency: "USD",
                         currencyDisplay: "symbol",
                       })
