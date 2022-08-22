@@ -10,7 +10,7 @@ export const ButtonBackground = styled.button`
   border-radius: 0.3rem;
   cursor: pointer;
   align-self: flex-end;
-  
+  border: none;
     cursor: pointer;
   
   :hover {

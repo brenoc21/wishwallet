@@ -11,7 +11,7 @@ function App() {
       <Routes>
         <Route  path="/" element={<Home></Home>}></Route>
         <Route  path="/addtoken" element={<AddToken />}></Route>
-        <Route  path="/edittoken/:id" element={<EditToken />}></Route>
+        <Route  path="/:id" element={<EditToken />}></Route>
       </Routes>
     </div>
   );

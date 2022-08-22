@@ -46,7 +46,7 @@ export default function Home() {
                   <tr>
                     <td
                       className="editBox"
-                      onClick={() => console.log(token._id)}
+                      onClick={() => navigate(`/${token._id}`)}
                     >
                       <img src={EditIcon} />
                     </td>

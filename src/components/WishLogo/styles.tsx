@@ -4,6 +4,7 @@ export const WishBar = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 28.5vw;
   p {
     font-size: 2rem;
     font-weight: 600;
@@ -11,7 +12,7 @@ export const WishBar = styled.div`
   }
   img {
     min-width: 3rem;
-    width: 10%;
+    width: 2vw;
     height: auto;
   }
 `;

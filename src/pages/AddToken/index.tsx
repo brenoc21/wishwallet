@@ -18,7 +18,7 @@ function AddToken() {
   const {data, setData} = useData()
   const [error, setError] = useState<Boolean>(false)
   const [formData, setFormData] = useState<Token>({ 
-    _id: "",
+    _id: ethers.utils.sha256(ethers.utils.randomBytes(32)),
     name: "",
     value: 0})
     function findEqual (item:Token, name: string) {
@@ -28,20 +28,15 @@ function AddToken() {
       return false
     }
     
- async function saveToken(e: React.FormEvent<HTMLFormElement>) {
+ function saveToken(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(false)
-    console.log(ethers.utils.id(formData.name))
-    await  setFormData( {...formData , _id: ethers.utils.id(formData.name)})
-    console.log(data.filter((item) => {return findEqual(item, formData.name)}))
    if(data.filter((item) => {return findEqual(item, formData.name)}).length > 0){
     setError(true)
     console.log(formData.name, " : ", data.filter((item) => findEqual(item, formData.name)))
    }else {
     setData(data.concat(formData));
-    console.log("deubom");
     navigate('/')
-    localStorage.setItem("data", JSON.stringify(data));
    }
     
     

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const TitleRow = styled.div`
   width: 30%;
   display: flex;
+  align-items: center;
 `;
 
 export const TokenContainer = styled.div`
