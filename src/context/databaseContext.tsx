@@ -16,7 +16,7 @@ export const DataContext = createContext({} as Context);
 
 
 export default function DataProvider({ children }: Props) {
-  const [data, setData] = useState<Token[]>(JSON.parse(localStorage.getItem("data") || ""));
+  const [data, setData] = useState<Token[]>(localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data") || ""): []);
   return (
     <DataContext.Provider
       value={{

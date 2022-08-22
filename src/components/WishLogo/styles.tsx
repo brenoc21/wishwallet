@@ -15,3 +15,6 @@ export const WishBar = styled.div`
     height: auto;
   }
 `;
+export const ContentContainer = styled.div`
+
+`

@@ -16,13 +16,9 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../../components/Layout/index";
 import WishLogo from "../../components/WishLogo";
 export default function Home() {
-  const { data, setData } = useData();
+  const { data } = useData();
   console.log(data)
-  function addToken() {
-   setData(data.concat({ name: "klv", _id: 2, value: 10250.5 }));
-    console.log(data);
-   localStorage.setItem("data", JSON.stringify(data));
-  }
+  
   const navigate = useNavigate();
   
   return (
@@ -30,18 +26,20 @@ export default function Home() {
       <TitleRow>
       <WishLogo/>
         <Button
+        type="button"
           color={"var(--purple)"}
           text={"Add Token"}
           onClick={() => navigate("/addtoken")}
         />
       </TitleRow>
       <TokenContainer>
-        <TokenTable>
+       {data.length > 0 ? <TokenTable>
           <TokenHeader>
             <td className="editBox"></td> <td>Tokens</td> <td>Balance</td>
           </TokenHeader>
           <TokenBody>
-            {data ? (
+            {
+              
               data.map((token) => {
                 return (
                   <React.Fragment>
@@ -72,11 +70,11 @@ export default function Home() {
                   </React.Fragment>
                 );
               })
-            ) : (
-              <p>No token has been registered.</p>
-            )}
+             
+            }
           </TokenBody>
-        </TokenTable>
+        </TokenTable> :  
+              <p>No token has been registered.</p>}
       </TokenContainer>
     </Layout>
   );

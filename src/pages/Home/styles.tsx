@@ -9,6 +9,9 @@ export const TokenContainer = styled.div`
   display: flex;
   width: 30%;
   flex-direction: column;
+  p{
+    text-align: center;
+  }
 `;
 export const TokenTable = styled.table`
   width: 100%;

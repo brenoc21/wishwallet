@@ -9,9 +9,10 @@ export const ButtonBackground = styled.button`
   font-weight: 600;
   border-radius: 0.3rem;
   cursor: pointer;
-  label {
+  align-self: flex-end;
+  
     cursor: pointer;
-  }
+  
   :hover {
     filter: brightness(0.9);
   }

@@ -6,11 +6,12 @@ type Props = {
     text: string,
     onClick: () => void,
     color: string,
+    type: "button" | "submit" | "reset"
   };
-function Button({ color, onClick, text } : Props) {
+function Button({ color, onClick, text, type } : Props) {
   return (
-    <ButtonBackground color={color} onClick={onClick}>
-      <label>{text}</label>
+    <ButtonBackground type={type} color={color} onClick={onClick}>
+      {text}
     </ButtonBackground>
   );
 }
