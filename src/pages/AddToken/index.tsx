@@ -6,10 +6,10 @@ import Input from "../../components/Input";
 import Layout from "../../components/Layout";
 import WishLogo from "../../components/WishLogo";
 import { useData } from "../../context/databaseContext";
-
+import { ethers } from "ethers";
 import { AddTokenContent, TitleRow, FormContainet } from "./styles";
 type Token = {
-  _id: number,
+  _id: String,
   name: string,
   value: number
   
@@ -17,7 +17,8 @@ type Token = {
 function AddToken() {
   const {data, setData} = useData()
   const [error, setError] = useState<Boolean>(false)
-  const [formData, setFormData] = useState<Token>({ _id: 0,
+  const [formData, setFormData] = useState<Token>({ 
+    _id: "",
     name: "",
     value: 0})
     function findEqual (item:Token, name: string) {
@@ -26,10 +27,11 @@ function AddToken() {
       }
       return false
     }
-  
+    
   function saveToken(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setError(false)
+     setFormData( {...formData , _id: ethers.utils.id(formData.name)})
     console.log(data.filter((item) => {return findEqual(item, formData.name)}))
    if(data.filter((item) => {return findEqual(item, formData.name)}).length > 0){
     setError(true)
@@ -39,7 +41,6 @@ function AddToken() {
     console.log("deubom");
     navigate('/')
     localStorage.setItem("data", JSON.stringify(data));
-   
    }
     
     
