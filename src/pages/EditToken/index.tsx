@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Layout from "../../components/Layout";
+import Modal from "../../components/Modal";
 import WishLogo from "../../components/WishLogo";
 import { useData } from "../../context/databaseContext";
 import { EditTokenContent, FormContainet, TitleRow, ButtonRow } from "./styles";
@@ -17,6 +18,7 @@ function EditToken() {
   const { id } = useParams();
   const { data, setData } = useData();
   const [error, setError] = useState<Boolean>(false);
+  const [modal, setModal] = useState<Boolean>(false);
   const [editFormData, setEditFormData] = useState<Token>(
     data.filter((item) => {
       return findToken(item, id!);
@@ -67,6 +69,15 @@ function EditToken() {
   }
   return (
     <Layout>
+      {modal ? (
+        <Modal
+          onClick={() => removeItem()}
+          setModal={setModal}
+          modal={modal}
+          text={`Are you sure you want to delete ${editFormData.name.toUpperCase()} from your
+database?`}
+        />
+      ) : null}
       <WishLogo />
       <EditTokenContent>
         <TitleRow>
@@ -86,7 +97,7 @@ function EditToken() {
             onChange={(e) =>
               setEditFormData({
                 ...editFormData,
-                name: (e.target as HTMLInputElement).value,
+                name: (e.target as HTMLInputElement).value
               })
             }
             type={"text"}
@@ -99,7 +110,7 @@ function EditToken() {
             onChange={(e) =>
               setEditFormData({
                 ...editFormData,
-                value: parseFloat((e.target as HTMLInputElement).value),
+                value: parseFloat((e.target as HTMLInputElement).value)
               })
             }
             type={"number"}
@@ -110,7 +121,7 @@ function EditToken() {
               type={"button"}
               color={"var(--red-error)"}
               text="Remove"
-              onClick={() => removeItem()}
+              onClick={() => setModal(true)}
             />
             <Button
               type={"submit"}
