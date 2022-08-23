@@ -6,7 +6,7 @@ import Layout from "../../components/Layout";
 import WishLogo from "../../components/WishLogo";
 import { useData } from "../../context/databaseContext";
 import { ethers } from "ethers";
-import { AddTokenContent, TitleRow, FormContainet } from "./styles";
+import { AddTokenContent, TitleRow, FormContainet, ButtonRow } from "./styles";
 type Token = {
   _id: string;
   name: string;
@@ -81,12 +81,14 @@ function AddToken() {
             type={"number"}
             title="Balance"
           />
-          <Button
-            type={"submit"}
-            color={"var(--purple)"}
-            text="Save"
-            onClick={() => console.log("submit")}
-          />
+          <ButtonRow>
+            <Button
+              type={"submit"}
+              color={"var(--purple)"}
+              text="Save"
+              onClick={() => console.log("submit")}
+            />
+          </ButtonRow>
         </FormContainet>
       </AddTokenContent>
     </Layout>
