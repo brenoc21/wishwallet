@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 type Token = {
-  _id: String,
+  _id: string,
   name: string,
   value: number
   
@@ -19,7 +19,7 @@ export default function DataProvider({ children }: Props) {
   const [data, setData] = useState<Token[]>(localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data") || ""): []);
   useEffect(()=> {
     localStorage.setItem("data", JSON.stringify(data));
-  }, data)
+  }, [data])
   return (
     <DataContext.Provider
       value={{

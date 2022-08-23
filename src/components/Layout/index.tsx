@@ -8,7 +8,7 @@ type Props = {
 function Layout({ children}:Props) {
   return (
     <Background>
-      <Logo src={logo} />
+      <Logo alt="KleverLogo" src={logo} />
       {children}
     </Background>
   );

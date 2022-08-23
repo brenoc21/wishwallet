@@ -18,7 +18,7 @@ export const TokenTable = styled.table`
   width: 100%;
   height: auto;
 `;
-export const TokenHeader = styled.th`
+export const TokenHeader = styled.thead`
   width: 100%;
   display: flex;
   align-items: center;

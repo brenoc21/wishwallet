@@ -17,7 +17,6 @@ import Layout from "../../components/Layout/index";
 import WishLogo from "../../components/WishLogo";
 export default function Home() {
   const { data } = useData();
-  console.log(data)
   
   const navigate = useNavigate();
   
@@ -35,7 +34,8 @@ export default function Home() {
       <TokenContainer>
        {data.length > 0 ? <TokenTable>
           <TokenHeader>
-            <td className="editBox"></td> <td>Tokens</td> <td>Balance</td>
+            <tr><td className="editBox"/><td>Tokens</td><td>Balance</td></tr>
+            
           </TokenHeader>
           <TokenBody>
             {
@@ -46,9 +46,10 @@ export default function Home() {
                   <tr>
                     <td
                       className="editBox"
-                      onClick={() => navigate(`/${token._id}`)}
+                      onClick={() => {
+                        navigate(`/${token._id}`)}}
                     >
-                      <img src={EditIcon} />
+                      <img alt="EditIcon" src={EditIcon} />
                     </td>
 
                     <td className="item">{token.name.toUpperCase()}</td>
@@ -60,7 +61,7 @@ export default function Home() {
                       })
                         .formatToParts(token.value)
                         .map((p) =>
-                          p.type != "literal" && p.type != "currency"
+                          p.type !== "literal" && p.type !== "currency"
                             ? p.value
                             : ""
                         )
