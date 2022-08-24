@@ -16,6 +16,7 @@ function Input({ title, type, onChange, error, value, errorMsg }: Props) {
         {title} {error ? <ErrorMsg>{errorMsg}</ErrorMsg> : null}
       </label>
       <input
+        data-testId={title}
         value={value}
         step="any"
         min={0}

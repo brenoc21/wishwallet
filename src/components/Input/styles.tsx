@@ -7,7 +7,11 @@ export const InputContainer = styled.div<Props>`
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-
+  label {
+    display: flex;
+    flex-direction: c;
+    gap: 1rem;
+  }
   input {
     width: 100%;
     background-color: var(--white);

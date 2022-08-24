@@ -20,7 +20,7 @@ function EditToken() {
   const [error, setError] = useState<Boolean>(false);
   const [modal, setModal] = useState<Boolean>(false);
   const [editFormData, setEditFormData] = useState<Token>(
-    data.filter((item) => {
+    data!.filter((item) => {
       return findToken(item, id!);
     })[0]
   );
