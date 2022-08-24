@@ -11,9 +11,12 @@ export const ButtonBackground = styled.button`
   cursor: pointer;
   align-self: flex-end;
   border: none;
-    cursor: pointer;
-  
+  cursor: pointer;
+
   :hover {
     filter: brightness(0.9);
+  }
+  @media screen and (max-width: 550px) {
+    align-self: center;
   }
 `;

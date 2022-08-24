@@ -26,6 +26,10 @@ export const ModalContainer = styled.div`
     color: var(--dark-blue);
     font-size: 1.2rem;
   }
+  @media screen and (max-width: 550px) {
+    padding: 0 1.5rem;
+    width: 98%;
+  }
 `;
 
 export const ButtonContainer = styled.div`

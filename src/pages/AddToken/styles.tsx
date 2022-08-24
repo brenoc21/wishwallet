@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const AddTokenContent = styled.div`
-  width: 26%;
+  width: 30rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  @media screen and (max-width: 550px) {
+    width: 100%;
+  }
 `;
 export const TitleRow = styled.div`
   display: flex;

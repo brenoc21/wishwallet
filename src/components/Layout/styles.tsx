@@ -13,6 +13,6 @@ export const Background = styled.div`
   gap: 3rem;
 `;
 export const Logo = styled.img`
-  width: 10%;
+  width: 10rem;
   height: auto;
 `;

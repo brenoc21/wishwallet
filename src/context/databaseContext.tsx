@@ -1,25 +1,27 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
 type Token = {
-  _id: string,
-  name: string,
-  value: number
-  
-}
+  _id: string;
+  name: string;
+  value: number;
+};
 type Props = {
-  children: React.ReactNode,
+  children: React.ReactNode;
 };
 type Context = {
-  data: Token[],
-  setData: (Token:Token[])=> void
-}
+  data: Token[];
+  setData: (Token: Token[]) => void;
+};
 export const DataContext = createContext({} as Context);
 
-
 export default function DataProvider({ children }: Props) {
-  const [data, setData] = useState<Token[]>(localStorage.getItem("data") ? JSON.parse(localStorage.getItem("data") || ""): []);
-  useEffect(()=> {
+  const [data, setData] = useState<Token[]>(
+    localStorage.getItem("data")
+      ? JSON.parse(localStorage.getItem("data") || "")
+      : []
+  );
+  useEffect(() => {
     localStorage.setItem("data", JSON.stringify(data));
-  }, [data])
+  }, [data]);
   return (
     <DataContext.Provider
       value={{
