@@ -40,7 +40,7 @@ function Modal({ text, setModal, modal, onClick }: Props) {
           <Button
             color="var(--red-error)"
             onClick={onClick}
-            text="Remove"
+            text="Confirm"
             type="button"
           />
         </ButtonContainer>

@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
-import DataProvider from './context/databaseContext';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter } from "react-router-dom";
+import DataProvider from "./context/databaseContext";
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <DataProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <DataProvider>
         <App />
-      </BrowserRouter>
       </DataProvider>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
